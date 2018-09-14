@@ -1,0 +1,7 @@
+#!/bin/bash
+export PATH=.:$PATH
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+Y="$DIR/convert_path_cilksan.py $@"
+X=`$Y`
+$X

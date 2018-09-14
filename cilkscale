@@ -1,0 +1,15 @@
+#!/bin/bash
+export PATH=.:$PATH
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+Y="$DIR/convert_path_cilkscale.py $@"
+X=`$Y`
+$X
+
+echo "Generating scalability data python cilkscale.py $@"
+
+
+
+pkill -f busywait.sh
+python $DIR/cilkscale.py $@
+pkill -f busywait.sh
